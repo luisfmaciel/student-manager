@@ -96,7 +96,15 @@ public class Program {
 				divider();
 				System.out.println("Informe o código do aluno: ");
 				int codigoDoAluno = in.nextInt();
-				imprimiSituacaoDoAluno(codigoDoAluno);
+				
+				if(codigoDoAluno >= 0 && codigoDoAluno < ultimaPosicao) {
+					imprimiSituacaoDoAluno(codigoDoAluno);					
+				} else {
+					divider();
+					System.out.println("O código do aluno ("+codigoDoAluno+") é inválido!");
+					divider();
+				}
+				
 				break;
 			}
 			case "3": {
