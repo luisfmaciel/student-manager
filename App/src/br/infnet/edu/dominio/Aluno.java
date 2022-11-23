@@ -40,10 +40,10 @@ public class Aluno extends Pessoa {
 //		}
 //	}
 	@Override
-	public void imprimirSituacao(int codigo) {
+	public void consultarSituacao(int codigo) {
 		float media = calculaMediaDoAluno();
 		String situacao = verificaSituacaoDoAluno();
-		System.out.println(codigo + " - " + this.getNome() + " | AV1: " + getNotaAv1() + " | AV2: "
+		System.out.println(codigo + " - " + this.getNome() + " " + getSobrenome() + " | AV1: " + getNotaAv1() + " | AV2: "
 				+ getNotaAv2() + " | MÉDIA: " + media + " | SITUAÇÃO: " + situacao);
 
 		}

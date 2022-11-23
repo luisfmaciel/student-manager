@@ -14,6 +14,12 @@ public class Professor extends Pessoa{
 		super(nome, sobrenome, email);
 		this.setDisciplina(disciplina);
 	}
+	
+	@Override
+	public void consultarSituacao(int codigo) {
+		System.out.println(codigo + " - " + this.getNome() + " " + getSobrenome() + " | E-mail: " + getEmail() + " | Disciplina: "
+				+ getDisciplina());
+	}
 
 	public String getDisciplina() {
 		return disciplina;

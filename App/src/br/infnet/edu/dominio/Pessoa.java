@@ -23,8 +23,8 @@ public class Pessoa {
 		return nome + " " + sobrenome + ";" + email;
 	}
 	
-	public void imprimirSituacao(int codigo) {
-		System.out.println(codigo + " - " + nome + " " + sobrenome + ";" + email);
+	public void consultarSituacao(int codigo) {
+		System.out.println(codigo + " - " + nome + " " + sobrenome + " | E-mail: " + email);
 	}
 	
 	public String getNome() {
