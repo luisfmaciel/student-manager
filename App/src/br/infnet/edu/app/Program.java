@@ -1,10 +1,6 @@
 package br.infnet.edu.app;
-
 import java.util.Scanner;
-
-import br.infnet.edu.dominio.Aluno;
-import br.infnet.edu.dominio.Pessoa;
-import br.infnet.edu.dominio.Professor;
+import br.infnet.edu.dominio.*;
 import br.infnet.edu.auxiliar.Constante;
 
 public class Program {
@@ -37,98 +33,104 @@ public class Program {
 			System.out.println("Informe uma opção: ");
 			option = in.next();
 
-			switch (option) {
-			case "1": {
-				if (pos < Constante.TAMANHO_VETOR_100) {
-					divider();
-					
-					Professor prof = new Professor();
-					
-					System.out.print("Informe o nome do professor: ");
-					prof.setNome(in.next());
-					
-					System.out.print("Informe o sobrenome do professor: ");
-					prof.setSobrenome(in.next());
-					
-					System.out.print("Informe o email do professor: ");
-					prof.setEmail(in.next());
-					
-					System.out.print("Informe a disciplina do professor: ");
-					prof.setDisciplina(in.next());
-					
-					pessoas[pos] = prof;
-					
-					divider();
-					pessoas[pos].consultarSituacao(pos);
-					divider();
-					
-					pos++;
-
-				} else {
-					System.out.println("Não é possível inserir um novo aluno");
+			try {
+				switch (option) {
+				case "1": {
+					if (pos < Constante.TAMANHO_VETOR_100) {
+						divider();
+						
+						Professor prof = new Professor();
+						
+						System.out.print("Informe o nome do professor: ");
+						prof.setNome(in.next());
+						
+						System.out.print("Informe o sobrenome do professor: ");
+						prof.setSobrenome(in.next());
+						
+						System.out.print("Informe o email do professor: ");
+						prof.setEmail(in.next());
+						
+						System.out.print("Informe a disciplina do professor: ");
+						prof.setDisciplina(in.next());
+						
+						pessoas[pos] = prof;
+						
+						divider();
+						pessoas[pos].consultarSituacao(pos);
+						divider();
+						
+						pos++;
+						
+					} else {
+						System.out.println("Não é possível inserir um novo aluno");
+					}
+					break;
 				}
-				break;
-			}
-			case "2": {
-				if (pos < Constante.TAMANHO_VETOR_100) {
-					divider();
-					
-					Aluno al = new Aluno();
-					
-					System.out.print("Informe o nome do aluno: ");
-					al.setNome(in.next());
-					
-					System.out.print("Informe o sobrenome do aluno: ");
-					al.setSobrenome(in.next());
-					
-					System.out.print("Informe o email do aluno: ");
-					al.setEmail(in.next());
-
-					System.out.print("Informe a nota AV1: ");
-					al.setNotaAv1(in.nextFloat());
-
-					System.out.print("Informe a nota AV2: ");
-					al.setNotaAv2(in.nextFloat());
-
-					System.out.println();
-
-					pessoas[pos] = al;
-					
-					divider();
-					pessoas[pos].consultarSituacao(pos);
-					divider();
-					
-					pos++;
-
-				} else {
-					System.out.println("Não é possível inserir um novo aluno");
+				case "2": {
+					if (pos < Constante.TAMANHO_VETOR_100) {
+						divider();
+						
+						Aluno al = new Aluno();
+						
+						System.out.print("Informe o nome do aluno: ");
+						al.setNome(in.next());
+						
+						System.out.print("Informe o sobrenome do aluno: ");
+						al.setSobrenome(in.next());
+						
+						System.out.print("Informe o email do aluno: ");
+						al.setEmail(in.next());
+						
+						System.out.print("Informe a nota AV1: ");
+						al.setNotaAv1(in.nextFloat());
+						
+						System.out.print("Informe a nota AV2: ");
+						al.setNotaAv2(in.nextFloat());
+						
+						System.out.println();
+						
+						pessoas[pos] = al;
+						
+						divider();
+						pessoas[pos].consultarSituacao(pos);
+						divider();
+						
+						pos++;
+						
+					} else {
+						System.out.println("Não é possível inserir um novo aluno");
+					}
+					break;
 				}
-				break;
-			}
-			case "3": {
+				case "3": {
+					divider();
+					System.out.println("Informe o código do docente/discente: ");
+					int codigo = in.nextInt();
+					
+					if(codigo >= 0 && codigo < pos) {
+						divider();
+						pessoas[codigo].consultarSituacao(codigo);		
+						divider();
+					} else {
+						divider();
+						System.out.println("O código ("+codigo+") é inválido!");
+						divider();
+					}
+					
+					break;
+				}
+				default:
+					if(!option.equals("4")) {
+						divider();
+						System.out.println("Opção inválida!");
+						divider();
+					}
+					break;
+				}
+			} catch (Exception e) {
 				divider();
-				System.out.println("Informe o código do docente/discente: ");
-				int codigo = in.nextInt();
-				
-				if(codigo >= 0 && codigo < pos) {
-					divider();
-					pessoas[codigo].consultarSituacao(codigo);		
-					divider();
-				} else {
-					divider();
-					System.out.println("O código ("+codigo+") é inválido!");
-					divider();
-				}
-				
-				break;
-			}
-			default:
-				if(!option.equals("4")) {
-					divider();
-					System.out.println("Opção inválida!");
-					divider();
-				}
-				break;
+				System.out.println(e.getMessage());
+				divider();
 			}
 
 		} while (!option.equals("4"));

@@ -16,6 +16,11 @@ public class Professor extends Pessoa{
 	}
 	
 	@Override
+	public String toString() {
+		return getNome() + ";" + getSobrenome() + ";" + getEmail() + ";" + getDisciplina();
+	}
+	
+	@Override
 	public void consultarSituacao(int codigo) {
 		System.out.println(codigo + " - " + this.getNome() + " " + getSobrenome() + " | E-mail: " + getEmail() + " | Disciplina: "
 				+ getDisciplina());
