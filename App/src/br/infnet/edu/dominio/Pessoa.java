@@ -1,4 +1,5 @@
 package br.infnet.edu.dominio;
+import br.infnet.edu.exceptions.EmailIvalidoException;
 
 public class Pessoa {
 	private String nome;
@@ -20,7 +21,7 @@ public class Pessoa {
 	
 	@Override
 	public String toString() {
-		return nome + " " + sobrenome + ";" + email;
+		return nome + ";" + sobrenome + ";" + email;
 	}
 	
 	public void consultarSituacao(int codigo) {
@@ -47,7 +48,9 @@ public class Pessoa {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(String email) throws EmailIvalidoException {
+		if(!email.contains("@")) throw new EmailIvalidoException("E-mail inválido");
+		
 		this.email = email;
 	}
 	

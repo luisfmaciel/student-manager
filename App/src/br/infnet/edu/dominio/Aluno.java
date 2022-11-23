@@ -31,13 +31,18 @@ public class Aluno extends Pessoa {
 
 		return "Prova final";
 	}
+	
+	@Override
+	public String toString() {
+		return getNome() + ";" + getSobrenome() + ";" + getEmail() + ";" + getNotaAv1() + ";" + getNotaAv2() + ";" + calculaMediaDoAluno() + ";" + verificaSituacaoDoAluno();
+	}
 
 	@Override
 	public void consultarSituacao(int codigo) {
 		System.out.println(codigo + " - " + this.getNome() + " " + getSobrenome() + " | AV1: " + getNotaAv1() + " | AV2: "
 				+ getNotaAv2() + " | MÉDIA: " + calculaMediaDoAluno() + " | SITUAÇÃO: " + verificaSituacaoDoAluno());
 
-		}
+	}
 
 	public float getNotaAv1() {
 		return notaAv1;
