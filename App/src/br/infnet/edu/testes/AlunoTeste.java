@@ -25,8 +25,6 @@ public class AlunoTeste {
 		al2.consultarSituacao(2);
 		al3.consultarSituacao(3);
 		
-		
-
 	}
 
 }
