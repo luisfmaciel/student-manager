@@ -15,12 +15,12 @@ public class AlunoTeste {
 			al1.setNotaAv2(7);
 			
 			
-			Aluno al2 = new Aluno("Felipe", "Maciel");
+			Aluno al2 = new Aluno("Felipe", "Maciel", "Barbosa");
 			al2.setEmail("felipe.maciel@al.infnet.edu.br");
 			al2.setNotaAv1(4);
 			al2.setNotaAv2(4);
 			
-			Aluno al3 = new Aluno("Vinicius", "Freitas", "vinicius@al.infnet.edu.br", 2, 5);
+			Aluno al3 = new Aluno("Vinicius", "Freitas", "Pires", "vinicius@al.infnet.edu.br", 2, 5);
 			
 			al1.consultarSituacao(1);
 			al2.consultarSituacao(2);

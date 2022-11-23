@@ -7,12 +7,12 @@ public class Aluno extends Pessoa {
 	
 	public Aluno() {}
 	
-	public Aluno(String nome, String sobrenome) {
-		super(nome, sobrenome);
+	public Aluno(String nome, String sobrenome, String ultimoNome) {
+		super(nome, sobrenome, ultimoNome);
 	}
 	
-	public Aluno(String nome, String sobrenome, String email, float notaAv1, float notaAv2) {
-		super(nome, sobrenome, email);
+	public Aluno(String nome, String sobrenome, String ultimoNome, String email, float notaAv1, float notaAv2) {
+		super(nome, sobrenome, ultimoNome, email);
 		
 		this.setNotaAv1(notaAv1);
 		this.setNotaAv2(notaAv2);
@@ -34,12 +34,12 @@ public class Aluno extends Pessoa {
 	
 	@Override
 	public String toString() {
-		return getNome() + ";" + getSobrenome() + ";" + getEmail() + ";" + getNotaAv1() + ";" + getNotaAv2() + ";" + calculaMediaDoAluno() + ";" + verificaSituacaoDoAluno();
+		return getNome() + ";" + getSobrenome() + ";" + getUltimoNome() + ";" + getEmail() + ";" + getNotaAv1() + ";" + getNotaAv2() + ";" + calculaMediaDoAluno() + ";" + verificaSituacaoDoAluno();
 	}
 
 	@Override
 	public void consultarSituacao(int codigo) {
-		System.out.println(codigo + " - " + this.getNome() + " " + getSobrenome() + " | AV1: " + getNotaAv1() + " | AV2: "
+		System.out.println(codigo + " - " + this.getNome() + " " + getSobrenome() + " " + getUltimoNome() + " | AV1: " + getNotaAv1() + " | AV2: "
 				+ getNotaAv2() + " | MÉDIA: " + calculaMediaDoAluno() + " | SITUAÇÃO: " + verificaSituacaoDoAluno());
 
 	}

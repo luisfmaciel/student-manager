@@ -13,11 +13,11 @@ public class ProfessorTeste {
 			prof1.setEmail("alisson.blois@prof.infnet.edu.br");
 			prof1.setDisciplina("Java");
 			
-			Professor prof2 = new Professor("Bruno", "Silva");
+			Professor prof2 = new Professor("Bruno", "Souza", "Silva");
 			prof2.setEmail("bruno.silva@prof.infnet.edu.br");
 			prof2.setDisciplina("Front-End");
 			
-			Professor prof3 = new Professor("Gabriel", "Vicente", "gabriel@prof.infnet.edu.br", "Android");
+			Professor prof3 = new Professor("Gabriel", "Vicente", "Azevedo", "gabriel@prof.infnet.edu.br", "Android");
 			
 			prof1.consultarSituacao(1);
 			prof2.consultarSituacao(2);

@@ -4,28 +4,31 @@ import br.infnet.edu.exceptions.EmailIvalidoException;
 public class Pessoa {
 	private String nome;
 	private String sobrenome;
+	private String ultimoNome;
+	
 	private String email;
 	
 	public Pessoa() {}
 	
-	public Pessoa(String nome, String sobrenome) {
+	public Pessoa(String nome, String sobrenome, String ultimoNome) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
+		this.ultimoNome = ultimoNome;
 	}
 	
-	public Pessoa(String nome, String sobrenome, String email) {
-		this(nome, sobrenome);
+	public Pessoa(String nome, String sobrenome, String ultimoNome, String email) {
+		this(nome, sobrenome, ultimoNome);
 		
 		this.email = email;
 	}
 	
 	@Override
 	public String toString() {
-		return nome + ";" + sobrenome + ";" + email;
+		return nome + ";" + sobrenome + ";" + ultimoNome + ";" + email;
 	}
 	
 	public void consultarSituacao(int codigo) {
-		System.out.println(codigo + " - " + nome + " " + sobrenome + " | E-mail: " + email);
+		System.out.println(codigo + " - " + nome + " " + sobrenome + " " + ultimoNome + " | E-mail: " + email);
 	}
 	
 	public String getNome() {
@@ -42,6 +45,14 @@ public class Pessoa {
 
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
+	}
+	
+	public String getUltimoNome() {
+		return ultimoNome;
+	}
+
+	public void setUltimoNome(String ultimoNome) {
+		this.ultimoNome = ultimoNome;
 	}
 
 	public String getEmail() {
