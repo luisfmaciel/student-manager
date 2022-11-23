@@ -32,19 +32,10 @@ public class Aluno extends Pessoa {
 		return "Prova final";
 	}
 
-//	private void imprimiAlunosCadastrados() {
-//		for(int i = 0; i < Constante.TAMANHO_VETOR_100; i++) {
-//			if(nomes[i] != null) {
-//				imprimiSituacaoDoAluno(i);
-//			}			
-//		}
-//	}
 	@Override
 	public void consultarSituacao(int codigo) {
-		float media = calculaMediaDoAluno();
-		String situacao = verificaSituacaoDoAluno();
 		System.out.println(codigo + " - " + this.getNome() + " " + getSobrenome() + " | AV1: " + getNotaAv1() + " | AV2: "
-				+ getNotaAv2() + " | MÉDIA: " + media + " | SITUAÇÃO: " + situacao);
+				+ getNotaAv2() + " | MÉDIA: " + calculaMediaDoAluno() + " | SITUAÇÃO: " + verificaSituacaoDoAluno());
 
 		}
 
