@@ -58,6 +58,8 @@ public class Program {
 					
 					pessoas[pos] = prof;
 					
+					pessoas[pos].consultarSituacao(pos);
+					
 					pos++;
 
 				} else {
@@ -90,7 +92,7 @@ public class Program {
 
 					pessoas[pos] = al;
 					
-					pessoas[pos].imprimirSituacao(pos);
+					pessoas[pos].consultarSituacao(pos);
 					
 					pos++;
 
@@ -101,16 +103,16 @@ public class Program {
 			}
 			case "3": {
 				divider();
-//				System.out.println("Informe o código do aluno: ");
-//				int codigoDoAluno = in.nextInt();
-//				
-//				if(codigoDoAluno >= 0 && codigoDoAluno < pos) {
-//					imprimirSituacao(codigoDoAluno);					
-//				} else {
-//					divider();
-//					System.out.println("O código do aluno ("+codigoDoAluno+") é inválido!");
-//					divider();
-//				}
+				System.out.println("Informe o código do docente/discente: ");
+				int codigo = in.nextInt();
+				
+				if(codigo >= 0 && codigo < pos) {
+					pessoas[codigo].consultarSituacao(codigo);					
+				} else {
+					divider();
+					System.out.println("O código do aluno ("+codigo+") é inválido!");
+					divider();
+				}
 				
 				break;
 			}
