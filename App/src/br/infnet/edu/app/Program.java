@@ -58,7 +58,9 @@ public class Program {
 					
 					pessoas[pos] = prof;
 					
+					divider();
 					pessoas[pos].consultarSituacao(pos);
+					divider();
 					
 					pos++;
 
@@ -92,7 +94,9 @@ public class Program {
 
 					pessoas[pos] = al;
 					
+					divider();
 					pessoas[pos].consultarSituacao(pos);
+					divider();
 					
 					pos++;
 
@@ -107,19 +111,17 @@ public class Program {
 				int codigo = in.nextInt();
 				
 				if(codigo >= 0 && codigo < pos) {
-					pessoas[codigo].consultarSituacao(codigo);					
+					divider();
+					pessoas[codigo].consultarSituacao(codigo);		
+					divider();
 				} else {
 					divider();
-					System.out.println("O código do aluno ("+codigo+") é inválido!");
+					System.out.println("O código ("+codigo+") é inválido!");
 					divider();
 				}
 				
 				break;
 			}
-//			case "3": {
-//				imprimiAlunosCadastrados();
-//				break;
-//			}
 			default:
 				if(!option.equals("4")) {
 					divider();
