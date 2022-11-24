@@ -1,5 +1,4 @@
 package br.infnet.edu.dominio;
-//import  br.infnet.edu.auxiliar.Constante;
 
 public class Aluno extends Pessoa {
 	private float notaAv1;
@@ -7,12 +6,8 @@ public class Aluno extends Pessoa {
 	
 	public Aluno() {}
 	
-	public Aluno(String nome, String sobrenome, String ultimoNome) {
-		super(nome, sobrenome, ultimoNome);
-	}
-	
-	public Aluno(String nome, String sobrenome, String ultimoNome, String email, float notaAv1, float notaAv2) {
-		super(nome, sobrenome, ultimoNome, email);
+	public Aluno(String email, float notaAv1, float notaAv2) {
+		super(email);
 		
 		this.setNotaAv1(notaAv1);
 		this.setNotaAv2(notaAv2);
@@ -34,14 +29,42 @@ public class Aluno extends Pessoa {
 	
 	@Override
 	public String toString() {
-		return getNome() + ";" + getSobrenome() + ";" + getUltimoNome() + ";" + getEmail() + ";" + getNotaAv1() + ";" + getNotaAv2() + ";" + calculaMediaDoAluno() + ";" + verificaSituacaoDoAluno();
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString()); 
+		sb.append(";"); 
+		sb.append(getEmail()); 
+		sb.append(";"); 
+		sb.append(getNotaAv1()); 
+		sb.append(";"); 
+		sb.append(getNotaAv2()); 
+		sb.append(";"); 
+		sb.append(calculaMediaDoAluno()); 
+		sb.append(";"); 
+		sb.append(verificaSituacaoDoAluno()); 
+		
+		return sb.toString();
 	}
 
 	@Override
 	public void consultarSituacao(int codigo) {
-		System.out.println(codigo + " - " + this.getNome() + " " + getSobrenome() + " " + getUltimoNome() + " | AV1: " + getNotaAv1() + " | AV2: "
-				+ getNotaAv2() + " | MÉDIA: " + calculaMediaDoAluno() + " | SITUAÇÃO: " + verificaSituacaoDoAluno());
-
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append(codigo); 
+			sb.append(" - "); 
+			sb.append(getNome()); 
+			sb.append(" | AV1: "); 
+			sb.append(getNotaAv1()); 
+			sb.append(" | AV2: "); 
+			sb.append(getNotaAv2()); 
+			sb.append(" | MÉDIA: "); 
+			sb.append(calculaMediaDoAluno()); 
+			sb.append(" | SITUAÇÃO: "); 
+			sb.append(verificaSituacaoDoAluno()); 
+			
+			System.out.println(sb.toString());
+		} catch (Exception e) {
+			System.out.println("ERROR: " + e.getMessage());
+		}
 	}
 
 	public float getNotaAv1() {

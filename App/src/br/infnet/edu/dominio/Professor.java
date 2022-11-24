@@ -6,24 +6,42 @@ public class Professor extends Pessoa{
 	
 	public Professor() {}
 	
-	public Professor(String nome, String sobrenome, String ultimoNome) {
-		super(nome, sobrenome, ultimoNome);
+	public Professor(String email) {
+		super(email);
 	}
 	
-	public Professor(String nome, String sobrenome, String ultimoNome, String email, String disciplina) {
-		super(nome, sobrenome, ultimoNome, email);
+	public Professor(String email, String disciplina) {
+		super(email);
 		this.setDisciplina(disciplina);
 	}
 	
 	@Override
 	public String toString() {
-		return getNome() + ";" + getSobrenome() + ";" + getUltimoNome() + ";" + getEmail() + ";" + getDisciplina();
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString()); 
+		sb.append(";"); 
+		sb.append(getDisciplina()); 
+		
+		return sb.toString();
+//		return getNome() + ";" + getSobrenome() + ";" + getUltimoNome() + ";" + getEmail() + ";" + getDisciplina();
 	}
 	
 	@Override
 	public void consultarSituacao(int codigo) {
-		System.out.println(codigo + " - " + this.getNome() + " " + getSobrenome() + " " + getUltimoNome() + " | E-mail: " + getEmail() + " | Disciplina: "
-				+ getDisciplina());
+		try {
+			StringBuilder sb = new StringBuilder();
+			sb.append(codigo); 
+			sb.append(" - "); 
+			sb.append(getNome()); 
+			sb.append("  | E-mail: "); 
+			sb.append(getEmail()); 
+			sb.append(" | Disciplina: "); 
+			sb.append(getDisciplina()); 
+			
+			System.out.println(sb.toString());			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	public String getDisciplina() {
